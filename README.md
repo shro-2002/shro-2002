@@ -2,13 +2,13 @@
 
 I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of Industrial Technology.. 
 
-🔭 I’m currently working on Podcast App 
-🌱 I’m currently learning React.js and MongoDB
-💬 Ask me about Machine Learning and Data Science
+🔭 I’m currently working on Podcast App <br>
+🌱 I’m currently learning React.js and MongoDB<br>
+💬 Ask me about Machine Learning and Data Science<br>
 
 ## 🏆 GitHub Profile Trophy
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=shro_2002)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy]([![trophy](https://github-profile-trophy.vercel.app/?username=shro_2002&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy))
 
 ## 🔥 Streak Stats
 
@@ -22,9 +22,7 @@ I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of I
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=flat-square)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat-square)
-![HTML](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat-square)
-![CSS](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat-square)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=flat-square)
+
 
 ## 🎁 Fun
 
