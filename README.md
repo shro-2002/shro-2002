@@ -26,4 +26,4 @@ I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of I
 
 ## 🎁 Fun
 
-![GIF](https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Ftopics%2Fgifs%3Fo%3Ddesc%26s%3Dupdated&psig=AOvVaw0yzI-q547kDBfZV9-nz-Sr&ust=1682974955072000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLiQnLXA0v4CFQAAAAAdAAAAABAJ)
+![GIF](https://media.tenor.com/uE7oJ57r9sgAAAAd/rick-sanchez-rick-and-morty.gif)
