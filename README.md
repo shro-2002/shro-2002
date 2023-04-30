@@ -5,6 +5,7 @@ I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of I
 🔭 I’m currently working on Podcast App <br>
 🌱 I’m currently learning React.js and MongoDB<br>
 💬 Ask me about Machine Learning and Data Science<br>
+You can reach me via email at ghoshshro2002@gmail.com or through my LinkedIn profile https://www.linkedin.com/in/shroddha-ghosh-90b332232/.
 
 ## 🏆 GitHub Profile Trophy
 
