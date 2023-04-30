@@ -12,7 +12,7 @@ I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of I
 
 ## 🔥 Streak Stats
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=shro_2002&theme=dark)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=shro_2002&theme=highcontrast&hide_border=true)](https://git.io/streak-stats)
 
 ## 📈 GitHub Stats
 
