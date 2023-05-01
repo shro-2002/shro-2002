@@ -9,11 +9,12 @@ You can reach me via email at ghoshshro2002@gmail.com or through my LinkedIn pro
 
 ## 🏆 GitHub Profile Trophy
 
-[![trophy]([![trophy](https://github-profile-trophy.vercel.app/?username=shro_2002&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy))
+[![trophy](https://github-profile-trophy.vercel.app/?username=shro_2002)](https://github.com/ryo-ma/github-profile-trophy)
+
 
 ## 🔥 Streak Stats
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=shro_2002&theme=highcontrast&hide_border=true)](https://git.io/streak-stats)
+![My GitHub stats](https://github-readme-streak-stats.herokuapp.com/?user=shro_2002)
 
 ## 📈 GitHub Stats
 
