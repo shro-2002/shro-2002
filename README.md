@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Shroddha Ghosh</h1>
+[<h1 align="center">Hi 👋, I'm Shroddha Ghosh</h1>
 <h3 align="center">I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of Industrial Technology..</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=shro-2002&label=Profile%20views&color=0e75b6&style=flat" alt="shro-2002" /> </p>
@@ -25,3 +25,4 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=shro-2002&show_icons=true&locale=en" alt="shro-2002" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=shro-2002&" alt="shro-2002" /></p>
+](https://github.com/brianbyrhee/ShiptivitasProject.git)
