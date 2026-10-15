@@ -1,29 +1,32 @@
-<h1 align="center">Hi 👋, I'm Shroddha Ghosh</h1>
-<h3 align="center">I'm Shroddha Ghosh currently pursuing B.Tech. in CSE from Kalinga Institute of Industrial Technology..</h3>
+# Shroddha Ghosh
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=shro-2002&label=Profile%20views&color=0e75b6&style=flat" alt="shro-2002" /> </p>
+Software engineer on a global analytics team at GE Vernova. I work in Python, SQL and data pipelines, and I'm building developer tooling and ML projects that report measured, reproducible results.
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=shro-2002" alt="shro-2002" /></a> </p>
+Kolkata, India · [LinkedIn](https://www.linkedin.com/in/shroddha-ghosh-90b332232/)
 
-- 🔭 I’m currently working on **PODCAST APP**
+## Featured
 
-- 🌱 I’m currently learning **React Native , MongoDB**
+**[driftlint](https://github.com/shro-2002/driftlint)** — a deterministic linter that fails CI when documentation drifts from code: missing files, renamed npm scripts and undeclared imports referenced in READMEs, docs and agent files such as `AGENTS.md`.
 
-- 💬 Ask me about **Machine Learning, Data Science**
+- TypeScript monorepo: parser → claim extractors → rules → reporters (text, JSON, GitHub annotations)
+- Test suite with regression fixtures; CI on Ubuntu, macOS and Windows with SHA-pinned actions; runs on its own docs in CI
+- A reproducible harness for measuring precision on real open-source repositories
 
-- 📫 How to reach me **ghoshshro2002@gmail.com**
+**[Pancreatic cancer biomarkers](https://github.com/shro-2002/pancreatic-ductal-adenocarcinoma-detection-using-Urinary-Biomarkers)** — binary PDAC classification on public data (Debernardi et al. 2020). Leak-free repeated cross-validation compares a urine-only panel with urine + plasma CA19-9 (best ROC AUC 0.945 ± 0.017). The README documents a correction: my first version leaked duplicated rows into the test set.
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/shroddha ghosh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="shroddha ghosh" height="30" width="40" /></a>
-<a href="https://instagram.com/carnelian_flower" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="carnelian_flower" height="30" width="40" /></a>
-</p>
+## Other ML work
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://hadoop.apache.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg" alt="hadoop" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/> </a> <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://pytorch.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="pytorch" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://reactnative.dev/" target="_blank" rel="noreferrer"> <img src="https://reactnative.dev/img/header_logo.svg" alt="reactnative" width="40" height="40"/> </a> <a href="https://realm.io/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/bestofjs/bestofjs-webui/8665e8c267a0215f3159df28b33c365198101df5/public/logos/realm.svg" alt="realm" width="40" height="40"/> </a> <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://seaborn.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="40" height="40"/> </a> <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a> </p>
+- [QSAR toxicity models](https://github.com/shro-2002/QSAR-MODELS): a controlled comparison with and without factor analysis; resampling applied to training data only.
+- [Polyp segmentation with U-Net](https://github.com/shro-2002/Polyp-detection-Semantic-Segmentation-using-Unet): results and limitations reported honestly; improvements in progress.
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=shro-2002&show_icons=true&locale=en&layout=compact" alt="shro-2002" /></p>
+## Tools
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=shro-2002&show_icons=true&locale=en" alt="shro-2002" /></p>
+Python · SQL · PostgreSQL · pandas · scikit-learn · XGBoost/LightGBM · TensorFlow/Keras · PyTorch · TypeScript · GitHub Actions · Power BI · Apache Superset
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=shro-2002&" alt="shro-2002" /></p>
+## How I work
+
+- Every number in a README points to the notebook cell or script that produced it.
+- Limitations sit next to results.
+- I use AI coding assistants for drafting and refactoring; design decisions, evaluation and final review are mine.
+
+<sub>Older coursework and competition notebooks remain public for reference. Work I do for my employer is not on this profile.</sub>
