@@ -2,9 +2,9 @@
 
 ---
 
-I am a Software Engineering Specialist 👩‍💻 at GE Vernova, working with Python, SQL and data, and an AI engineer 🤖 who builds LLM agents and developer tools that are tested, guarded and measured.
+I am a Software Engineering Specialist 👩‍💻 working with Python, SQL and data, and an AI engineer 🤖 who builds LLM agents and developer tools that are tested, guarded and measured.
 
-Outside work, I build agent systems where the model proposes and deterministic code decides 🛡️, write evals that keep every run in the denominator 📊, and ship linters that catch docs drifting from code 🔍. Some of my 💻 projects: [countersign](https://github.com/shro-2002/countersign) and [driftlint](https://github.com/shro-2002/driftlint).
+Outside work, I build agent systems where the model proposes and deterministic code decides 🛡️, and write evals that keep every run in the denominator 📊. Some of my 💻 projects are available [here](https://github.com/shro-2002?tab=repositories).
 
 - 🔭 I'm currently building **[countersign](https://github.com/shro-2002/countersign)**: an AI support agent that can issue PayPal refunds only within what the merchant authorised
 - 🌱 I'm going deeper into **LLM agents, function calling, guardrails and evals**
