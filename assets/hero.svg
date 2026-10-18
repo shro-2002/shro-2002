@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="t d">
+<title id="t">Shroddha Ghosh</title>
+<desc id="d">Building intelligent systems. Exploring what AI can become. AI Engineering, Agentic Systems, Women in Tech. A small neural lattice sends signals toward one dashed checkpoint; only one verified path continues past it.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A0A18"/><stop offset="1" stop-color="#171034"/></linearGradient>
+<radialGradient id="glowV" cx="0.82" cy="0.35" r="0.45"><stop offset="0" stop-color="#7C3AED" stop-opacity=".35"/><stop offset="1" stop-color="#7C3AED" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowP" cx="0.12" cy="1" r="0.5"><stop offset="0" stop-color="#EC4899" stop-opacity=".18"/><stop offset="1" stop-color="#EC4899" stop-opacity="0"/></radialGradient>
+<linearGradient id="name" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F5F3FF"/><stop offset="1" stop-color="#C4B5FD"/></linearGradient>
+<linearGradient id="name2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C4B5FD"/><stop offset=".6" stop-color="#F0ABFC"/><stop offset="1" stop-color="#F9A8D4"/></linearGradient>
+<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B5CF6"/><stop offset=".55" stop-color="#F0ABFC"/><stop offset="1" stop-color="#67E8F9" stop-opacity="0"/></linearGradient>
+<linearGradient id="route" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0ABFC"/><stop offset="1" stop-color="#67E8F9"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#C4B5FD" opacity=".08"/></pattern>
+</defs>
+<style>
+.e{stroke:#A78BFA;stroke-opacity:.16;stroke-width:1}
+.stop{stroke:#A78BFA;stroke-opacity:.35;stroke-width:1.2}
+.tick{stroke:#F9A8D4;stroke-width:2;stroke-linecap:round}
+.n{fill:#C4B5FD;animation:tw 4s ease-in-out infinite}
+.r{fill:none;stroke:url(#route);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6 10;animation:flow 2.4s linear infinite}
+@keyframes tw{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes flow{to{stroke-dashoffset:-32}}
+@media (prefers-reduced-motion:reduce){.n,.r{animation:none}}
+</style>
+<rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+<rect width="1200" height="420" rx="24" fill="url(#dots)"/>
+<rect width="1200" height="420" rx="24" fill="url(#glowV)"/>
+<rect width="1200" height="420" rx="24" fill="url(#glowP)"/>
+<rect x=".5" y=".5" width="1199" height="419" rx="23.5" fill="none" stroke="#C4B5FD" stroke-opacity=".14"/>
+
+<text x="80" y="84" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" fill="#A78BFA" letter-spacing="1">// software engineer · building AI systems</text>
+<text x="76" y="182" font-family="ui-sans-serif,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="92" font-weight="800" letter-spacing="3" fill="url(#name)">SHRODDHA</text>
+<text x="76" y="274" font-family="ui-sans-serif,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="92" font-weight="800" letter-spacing="3" fill="url(#name2)">GHOSH</text>
+<rect x="80" y="300" width="470" height="2" rx="1" fill="url(#rule)"/>
+<text x="80" y="340" font-family="ui-sans-serif,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" fill="#E5E7EB">Building intelligent systems.</text>
+<text x="80" y="380" font-family="ui-sans-serif,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="30" fill="#C4B5FD">Exploring what AI can become.</text>
+
+<g><line class="e" x1="860" y1="150" x2="950" y2="122"/><line class="e" x1="860" y1="150" x2="950" y2="177"/><line class="e" x1="860" y1="150" x2="950" y2="232"/><line class="e" x1="860" y1="150" x2="950" y2="287"/><line class="e" x1="860" y1="150" x2="950" y2="342"/><line class="e" x1="860" y1="205" x2="950" y2="122"/><line class="e" x1="860" y1="205" x2="950" y2="177"/><line class="e" x1="860" y1="205" x2="950" y2="232"/><line class="e" x1="860" y1="205" x2="950" y2="287"/><line class="e" x1="860" y1="205" x2="950" y2="342"/><line class="e" x1="860" y1="260" x2="950" y2="122"/><line class="e" x1="860" y1="260" x2="950" y2="177"/><line class="e" x1="860" y1="260" x2="950" y2="232"/><line class="e" x1="860" y1="260" x2="950" y2="287"/><line class="e" x1="860" y1="260" x2="950" y2="342"/><line class="e" x1="860" y1="315" x2="950" y2="122"/><line class="e" x1="860" y1="315" x2="950" y2="177"/><line class="e" x1="860" y1="315" x2="950" y2="232"/><line class="e" x1="860" y1="315" x2="950" y2="287"/><line class="e" x1="860" y1="315" x2="950" y2="342"/><line class="e" x1="950" y1="122" x2="1040" y2="150"/><line class="e" x1="950" y1="122" x2="1040" y2="205"/><line class="e" x1="950" y1="122" x2="1040" y2="260"/><line class="e" x1="950" y1="122" x2="1040" y2="315"/><line class="e" x1="950" y1="177" x2="1040" y2="150"/><line class="e" x1="950" y1="177" x2="1040" y2="205"/><line class="e" x1="950" y1="177" x2="1040" y2="260"/><line class="e" x1="950" y1="177" x2="1040" y2="315"/><line class="e" x1="950" y1="232" x2="1040" y2="150"/><line class="e" x1="950" y1="232" x2="1040" y2="205"/><line class="e" x1="950" y1="232" x2="1040" y2="260"/><line class="e" x1="950" y1="232" x2="1040" y2="315"/><line class="e" x1="950" y1="287" x2="1040" y2="150"/><line class="e" x1="950" y1="287" x2="1040" y2="205"/><line class="e" x1="950" y1="287" x2="1040" y2="260"/><line class="e" x1="950" y1="287" x2="1040" y2="315"/><line class="e" x1="950" y1="342" x2="1040" y2="150"/><line class="e" x1="950" y1="342" x2="1040" y2="205"/><line class="e" x1="950" y1="342" x2="1040" y2="260"/><line class="e" x1="950" y1="342" x2="1040" y2="315"/><line class="stop" x1="1040" y1="150" x2="1092" y2="150"/><line class="stop" x1="1040" y1="205" x2="1092" y2="205"/><line class="stop" x1="1040" y1="260" x2="1092" y2="260"/><line class="stop" x1="1040" y1="315" x2="1092" y2="315"/></g>
+<line x1="1098" y1="104" x2="1098" y2="360" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="3 6" stroke-opacity=".8"/>
+<text x="1098" y="92" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" fill="#67E8F9" fill-opacity=".85">check</text>
+<g><line class="tick" x1="1092" y1="144" x2="1092" y2="156"/><line class="tick" x1="1092" y1="199" x2="1092" y2="211"/><line class="tick" x1="1092" y1="254" x2="1092" y2="266"/><line class="tick" x1="1092" y1="309" x2="1092" y2="321"/></g>
+<polyline class="r" points="860,205 950,232 1040,205 1098,232 1150,232"/>
+<g><circle class="n" style="animation-delay:0.00s" cx="860" cy="150" r="5"/><circle class="n" style="animation-delay:0.37s" cx="860" cy="205" r="5"/><circle class="n" style="animation-delay:0.74s" cx="860" cy="260" r="5"/><circle class="n" style="animation-delay:1.11s" cx="860" cy="315" r="5"/><circle class="n" style="animation-delay:1.48s" cx="950" cy="122" r="5"/><circle class="n" style="animation-delay:1.85s" cx="950" cy="177" r="5"/><circle class="n" style="animation-delay:2.22s" cx="950" cy="232" r="5"/><circle class="n" style="animation-delay:2.59s" cx="950" cy="287" r="5"/><circle class="n" style="animation-delay:2.96s" cx="950" cy="342" r="5"/><circle class="n" style="animation-delay:3.33s" cx="1040" cy="150" r="5"/><circle class="n" style="animation-delay:3.70s" cx="1040" cy="205" r="5"/><circle class="n" style="animation-delay:0.07s" cx="1040" cy="260" r="5"/><circle class="n" style="animation-delay:0.44s" cx="1040" cy="315" r="5"/></g>
+<circle cx="1150" cy="232" r="9" fill="#67E8F9" fill-opacity=".18"/>
+<circle cx="1150" cy="232" r="5.5" fill="#67E8F9"/>
+</svg>
