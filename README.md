@@ -1,96 +1,68 @@
-<p align="center">
-  <img src="assets/hero.svg" width="100%" alt="Banner with Shroddha Ghosh in large type and the tagline: Building intelligent systems. Exploring what AI can become.">
-</p>
+# Shroddha Ghosh
 
-<h1 align="center">Shroddha Ghosh</h1>
+**Software engineer · Reliable AI agents for payments and other high-stakes workflows**
 
-<p align="center">
-  <b>AI&nbsp;Engineering</b> &nbsp;·&nbsp; <b>Agentic&nbsp;Systems</b> &nbsp;·&nbsp; <b>Women&nbsp;in&nbsp;Tech</b><br><sub>Software engineer · Python · TypeScript · SQL</sub>
-</p>
+I'm a software engineer with professional experience in Python, SQL, analytics and backend engineering. I specialize in end-to-end AI engineering: agents that call real tools, measured against frozen evaluations, and allowed to act only within limits enforced in code.
 
-## 01 · About
+The rule behind my recent work: **the model proposes, deterministic code decides, a human approves what matters.**
 
-I'm a software engineer building my way into AI engineering. The part of AI I care most about comes after the demo: making an agent safe enough to hold real permissions, measuring it honestly, and writing the test that proves it still behaves tomorrow.
+## Core capabilities
 
-My recent projects follow one rule: **the model proposes, deterministic code decides, and a human signs off on anything that matters.** I learn by shipping: hackathon builds, Kaggle competitions, and going back to fix my older notebooks when I find mistakes in them.
+- **Agent systems:** tool calling, multi-agent workflows, Model Context Protocol servers, permission boundaries
+- **Money-safe execution:** policy engines, idempotency, database constraints, read-back verification
+- **Evaluation:** frozen and held-out test sets, prompt-injection cases, provider comparisons, results reported as counts
+- **Security and audit:** threat models, approval bound to an exact action, tamper-evident logs
+- **Backend and data:** Python, FastAPI, PostgreSQL, SQLite, SQL, TypeScript, Next.js, PyTorch
 
-I'd also like to see many more women in the rooms where AI systems get designed, so I build in public.
+## Featured: fintech agents
 
-<img src="assets/divider.svg" width="100%" alt="">
+### [PayOps Sentinel](https://github.com/shro-2002/payops-sentinel)
 
-## 02 · What I'm building
+**Payment-incident investigator with verified claims** · PayPal AI Hackathon 2026
 
-<a href="https://github.com/shro-2002/countersign"><img src="assets/countersign.svg" width="100%" alt="countersign: an AI agent asks for a $1.00 refund, the merchant authorized $0.25, so countersign blocks it and executes a $0.25 refund exactly once."></a>
+Explains refund spikes for payment-ops teams. The agent has read-only, argument-validated tools; the server checks every number it states against the query it cites. Refunds pass 16 deterministic policy checks and a second-operator approval bound to a SHA-256 hash of the action. They are then executed with a stable request ID and verified against PayPal.
 
-**Problem.** An AI support agent with refund powers can be talked into refunding more than the merchant authorized, for example by an instruction hidden in a customer message.
+- 84/84 numeric claims matched source; 16/16 safety cases passed. [Evaluation](https://github.com/shro-2002/payops-sentinel/blob/main/docs/EVALUATION.md) · [Security model](https://github.com/shro-2002/payops-sentinel/blob/main/docs/SECURITY_MODEL.md)
+- `FastAPI` `PostgreSQL` `Next.js` `AG Grid` `Claude` · CI on main · PayPal sandbox
 
-**What I built.** A service that checks every agent request against the merchant's confirmed mandate and PayPal's live record, explains any conflict, offers a safe correction, executes it exactly once (idempotency key plus a database uniqueness constraint), then re-reads PayPal to verify. It also flags an agent that claims a refund PayPal never made.
+### [DisputeDesk](https://github.com/shro-2002/disputedesk)
 
-**Stack.** `Python 3.13` `FastAPI` `PostgreSQL` `Next.js` `Gemini 2.5 Flash / Flash Lite` `Ollama (Llama 3.1)` `PayPal sandbox`
+**Multi-agent chargeback defense** · Flip the Switch · Hackathon Submission
 
-**Evidence.**
-- Frozen 8-case evaluation, one run per cell, every run kept in the denominator: safety violations **2/8** unprotected, **2/8** with a simple cap rule, **0/8** with countersign. Small samples, reported as counts.
-- Found a double-spend race between operator approval and the agent's own refund, reproduced it in the sandbox, and fixed it with a Postgres advisory lock and a ledger-aware check, covered by a regression test.
-- `67 passed, 11 skipped` (the 11 skipped tests call the live PayPal sandbox and run only when enabled).
+Three agents and a finance team defend card-not-present fraud disputes (Visa 10.4). Visa CE3.0 evidence rules run in code and the model only drafts letters. Small, provable cases file automatically; large ones wait for an identity-checked approver. An HMAC-SHA256 audit chain is verified before every money call. Receipts are unique per dispute and approval, so replays fail.
 
-→ [countersign repository](https://github.com/shro-2002/countersign) · [Frozen results](https://github.com/shro-2002/countersign/blob/main/evals/FROZEN_RESULTS_2026-10-16.md)
+- [Demo video (2:43)](https://youtu.be/A_EF8L1ivME) · [Claim audit](https://github.com/shro-2002/disputedesk/blob/main/docs/README_CLAIM_AUDIT.md)
+- `Python` `Switch` `FastAPI` `SQLite` `Claude` · mock gateway, synthetic data
 
-<br>
+### [countersign](https://github.com/shro-2002/countersign)
 
-<a href="https://github.com/shro-2002/KinSync"><img src="assets/kinsync.svg" width="100%" alt="KinSync: a care handoff moves from pending approval to pending acceptance to completed. A human approves, the named recipient accepts, and the AI planner can only propose."></a>
+**Agent refunds limited to the merchant's mandate** · Early prototype
 
-**Problem.** When a family shares care, the dangerous moment is the handover: two people each believing the other has it.
+An agent tricked into requesting a $1.00 refund against a $0.25 mandate is blocked. The merchant approves the safe correction, which executes exactly once and is re-verified with PayPal.
 
-**What I built.** An MCP server and MCP Apps dashboard where a care task changes hands only after a human approves and the named recipient accepts. Until then, the original person is still responsible, and the system says so. The AI planner can propose a handoff and read household state, but it can never approve, accept or send anything. That boundary is enforced in code, not in the prompt.
+- Frozen 8-case evaluation: 2/8 safety violations unprotected, **0/8** with countersign. [Results](https://github.com/shro-2002/countersign/blob/main/evals/FROZEN_RESULTS_2026-10-16.md) · [Threat model](https://github.com/shro-2002/countersign/blob/main/docs/THREAT_MODEL.md)
+- `FastAPI` `PostgreSQL` `Gemini` · PayPal sandbox
 
-**Stack.** `TypeScript` `Node.js` `Model Context Protocol (2025-11-25, Streamable HTTP)` `MCP Apps` `SQLite` `Zod` `Vitest` `Playwright`
+### [AuditGlimmer](https://github.com/shro-2002/auditglimmer)
 
-**Evidence.**
-- A test runs a deliberately compromised planner against an instruction planted in household data. It tries to approve a pending handoff, write to another household and send an SMS. All three are refused: the approval stays pending, the outbox stays empty and the other household is untouched.
-- `221/221` tests pass and typecheck is clean from a fresh clone.
-- Honest scope: a simulated Alexa+ workflow with synthetic data, not a native Alexa+ deployment.
+**Inspection photos to traceable lending-collateral evidence** · Built for Meta Global AI Developer Hackathon 2026
 
-→ [KinSync repository](https://github.com/shro-2002/KinSync)
+SAM 3.1 and Muse Spark read equipment serials. Deterministic rules match them to the asset register and route uncertainty to a reviewer.
 
-<img src="assets/divider.svg" width="100%" alt="">
+- Pre-registered study: 11/16 exact serials (69%, below its own 70% bar), 0 invented. [Results](https://github.com/shro-2002/auditglimmer/blob/master/docs/muse-study-results.md) · [Demo (2:55)](https://youtu.be/xvGoop1LOUE)
 
-## 03 · Toolbox
+## Additional work
 
-Only what I've used in the work on this profile.
+- [Action Graph AI](https://github.com/shro-2002/action-graph-ai): meeting-to-execution agent with a held-out Claude vs Muse Spark comparison
+- [KinSync](https://github.com/shro-2002/KinSync): MCP server whose agent permission boundary is tested against a compromised planner · built for the [Amazon Developer Hackathon 2026](https://amazonappdev2026.devpost.com/)
+- [Territory](https://github.com/shro-2002/territory): localization planning on the Qloo API · [live demo](https://territory-qloo.netlify.app)
+- [Metric Mirage](https://github.com/shro-2002/metric-mirage): detects Simpson's paradox in reported rates · [live demo](https://shro-2002.github.io/metric-mirage/)
+- [RSNA knee MRI](https://github.com/shro-2002/rsna-knee-abnormality-detection): solo Kaggle entry with DICOM pipeline and DINOv2 fine-tunes
 
-| Area | Tools |
-|---|---|
-| **AI / ML** | `PyTorch` `timm` `scikit-learn` `XGBoost` `LightGBM` `TensorFlow / Keras` `pandas` `NumPy` |
-| **LLMs / Agents** | `Gemini API (tool calling)` `Ollama` `Model Context Protocol` `MCP Apps` `guardrails and policy checks` `frozen-case evals` |
-| **Backend / Data** | `Python` `FastAPI` `PostgreSQL` `SQLite` `SQL` `TypeScript` `Node.js` `Next.js` `Java` `Spring Boot` |
-| **Tools / Infra** | `pytest` `Vitest` `Playwright` `Docker Compose` `pnpm` `GitHub Actions` `Git` |
+## How I build
 
-<img src="assets/divider.svg" width="100%" alt="">
+I use AI coding assistants for much of the implementation, and commit history records where. My role is scoping the problem, designing the architecture and controls, directing and reviewing the code, defining tests and evaluations, and deciding what ships. ADRs, decision logs and evaluation reports in these repositories document many of those choices. All payment work runs on sandboxes or mocks; none is a production deployment.
 
-## 04 · The experimentation lab
+## Contact
 
-Where I try things before I know if they'll work. Written up honestly, including the parts that didn't.
-
-- `EXPERIMENTING` **RSNA 2026 knee-MRI abnormality detection** · Kaggle competition, solo · Oct 2026<br>Competition experimentation: a DICOM-to-inference pipeline for multi-plane MRI, my own DINOv2 slice-MIL fine-tunes in PyTorch, and pass/fail gates set before any scored run.
-- `SHIPPED` **Two hackathon builds in one month** · Oct 2026<br>countersign (PayPal AI Hackathon) and KinSync (Amazon Developer Hackathon, Alexa+ track).
-- `MEASURED` **Prompt-injection evaluation of LLM refund agents** · Oct 2026<br>Gemini 2.5 Flash and Flash Lite against frozen cases, with committed traces. A small sample, published as counts.
-- `IN REVIEW` **Re-auditing my 2023 competition notebooks** · 2023 → now<br>Zindi × ITU, MachineHack, AIcrowd, SENSORIUM and Kaggle entries: fixing leakage, crediting starter kits, reporting real scores. First up: a [leak-free rewrite](https://github.com/shro-2002/pancreatic-ductal-adenocarcinoma-detection-using-Urinary-Biomarkers/pull/1) of my pancreatic-cancer biomarker model.
-
-<img src="assets/divider.svg" width="100%" alt="">
-
-## 05 · Women in Tech
-
-<img src="assets/women-in-tech.svg" width="100%" alt="More women building AI. More perspectives shaping the future.">
-
-Who builds AI shapes what it notices and what it misses. I'm a woman building a career in AI engineering, and I want many more women doing this work. My part is to stay curious, build carefully, and contribute to what AI becomes next.
-
-<img src="assets/divider.svg" width="100%" alt="">
-
-## 06 · Let's connect
-
-<p>
-  <a href="https://www.linkedin.com/in/shroddha-ghosh-90b332232/"><b>LinkedIn</b></a> &nbsp;·&nbsp;
-  <a href="https://github.com/shro-2002?tab=repositories"><b>All repositories</b></a>
-</p>
-
-<p align="center"><br><i>Curious by default. Rigorous by design.</i></p>
+[LinkedIn](https://www.linkedin.com/in/shroddha-ghosh-90b332232/) · [All repositories](https://github.com/shro-2002?tab=repositories)
