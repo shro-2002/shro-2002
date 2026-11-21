@@ -14,17 +14,7 @@
 
 I'm a software engineer building AI systems that call real tools, check their own work, and act only within limits enforced in code. I work as a **Software Engineering Specialist at GE Vernova** (Python, SQL, analytics, backend systems) and hold a B.Tech in Computer Science (2024).
 
-My independent work is about agentic applications where a wrong answer costs money: payment-incident investigation, chargeback defense, and storefronts that AI agents can buy from.
-
-## How I build
-
-**The model proposes. Code enforces the limits. Evidence checks the result. A person signs off on anything that moves money or can't be undone.**
-
-- **Models get narrow tools.** Read-only, argument-validated, budgeted. No raw SQL, no generated code executed.
-- **Rules live in code, not prompts.** Pricing, eligibility, and refund policy are deterministic functions with tests.
-- **Every claim is checkable.** Numbers trace to the query that produced them. Unsupported claims are flagged, not shown.
-- **Money paths are boring on purpose.** Idempotency keys, unique constraints, single-use approvals, verification after the write.
-- **Results are reported as counts, including the failures.** Frozen and held-out evaluations; misses stay in the write-up.
+My independent work is about agentic applications where a wrong answer costs money: payment-incident investigation, chargeback defense, and storefronts that AI agents can buy from. Start with **[PayOps Sentinel](#payops-sentinel)**, **[AgentDoor](#agentdoor)** (live) and **[DisputeDesk](#disputedesk)**.
 
 ## Selected work
 
@@ -94,6 +84,16 @@ Card-not-present fraud disputes (Visa reason code 10.4) are won or lost on evide
 [Countersign](https://github.com/shro-2002/countersign) limits agent refunds to what the merchant authorized, checked against PayPal's live record
 
 <sub>Every project above is a prototype, sandbox or demo build; none is a production deployment, and no hackathon result is claimed. I use AI coding assistants for much of the implementation. My part is scoping, architecture, controls, reviewing the code, defining the tests and evaluations, and deciding what ships.</sub>
+
+## How I build
+
+**The model proposes. Code enforces the limits. Evidence checks the result. A person signs off on anything that moves money or can't be undone.**
+
+- **Models get narrow tools.** Read-only, argument-validated, budgeted. No raw SQL, no generated code executed.
+- **Rules live in code, not prompts.** Pricing, eligibility, and refund policy are deterministic functions with tests.
+- **Every claim is checkable.** Numbers trace to the query that produced them. Unsupported claims are flagged, not shown.
+- **Money paths are boring on purpose.** Idempotency keys, unique constraints, single-use approvals, verification after the write.
+- **Results are reported as counts, including the failures.** Frozen and held-out evaluations; misses stay in the write-up.
 
 ## Capabilities
 
