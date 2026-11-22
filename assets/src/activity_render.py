@@ -18,10 +18,7 @@ BLOCK = re.compile(r"<!-- activity:start -->.*?<!-- activity:end -->", re.S)
 # Live dot pulses unless the viewer asked for reduced motion.
 PULSE = ("<style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}.pulse{animation:pulse 2.4s ease-in-out infinite}"
          "@media (prefers-reduced-motion: reduce){.pulse{animation:none}}</style>")
-TITLE = "Engineering activity: building in public"
-LANGUAGE_NAMES = {"Jupyter Notebook": "Jupyter"}
-CONVENTIONAL_PREFIX = re.compile(r"^\w+(\([^)]*\))?!?:\s*")
-STACK_NOTE = "stack = primary language of repos pushed in 90 days"
+TITLE = "Recent public GitHub activity"
 
 
 def weekly(days, weeks=8):
@@ -37,49 +34,47 @@ def short(s, limit):
     return s if len(s) <= limit else s[:limit - 1].rstrip() + "…"
 
 
+def period(weeks):
+    """The charted window as text, first day to last day: 'Sep 27 – Nov 21, 2026'."""
+    first, last = weeks[0][0], weeks[-1][0] + timedelta(days=6)
+    return f"{first:%b} {first.day} – {last:%b} {last.day}, {last.year}"
+
+
 def summary(data):
-    cal, prs, feed = data["calendar"], data["prs"], data["feed"]
-    upstream = [p for p in prs if not is_own_repo(p["repo"])]
-    latest = max(feed, key=lambda e: e["date"]) if feed else None
-    return {"cal": cal, "prs": len(prs), "upstream": upstream, "weeks": weekly(cal["days"]), "latest": latest,
-            "languages": data["languages"], "updated": data["updated"]}
+    cal, prs = data["calendar"], data["prs"]
+    weeks = weekly(cal["days"])
+    return {"weeks": weeks, "period": period(weeks), "headline": f"The last {len(weeks)} weeks, in context.",
+            "in_window": sum(n for _, n in weeks), "total": cal["total"], "prs": len(prs),
+            "upstream": [p for p in prs if not is_own_repo(p["repo"])], "updated": data["updated"]}
 
 
 def describe(s):
-    cal, weeks = s["cal"], s["weeks"]
+    weeks = s["weeks"]
     trend = ", ".join(f"{start:%b} {start.day}: {n}" for start, n in weeks)
-    langs = ", ".join(f"{lang} {n}" for lang, n in s["languages"])
-    return (f"Weekly public GitHub contributions for the last {len(weeks)} complete weeks ({trend}). "
-            f"Last 12 months: {cal['total']} contributions and {cal['commits']} commits; current streak "
-            f"{cal['streak']} days, longest {cal['longest_streak']}. {s['prs']} pull requests merged, "
-            f"{len(s['upstream'])} upstream. Primary languages of repositories pushed in 90 days: {langs}. "
+    return (f"Weekly public GitHub contributions for the last {len(weeks)} complete weeks, {s['period']} ({trend}). "
+            f"These weeks hold {s['in_window']} of the {s['total']} public contributions in the last 12 months. "
+            f"{s['prs']} pull requests merged in 12 months, {len(s['upstream'])} upstream. "
             f"Data as of {s['updated']}.")
 
 
 def tiles(s):
-    """(icon, title, value line) for the four tiles under the chart."""
-    cal, up, latest = s["cal"], s["upstream"], s["latest"]
+    """(icon, title, value line) for the two tiles under the chart: the window in context, and upstream work."""
+    up = s["upstream"]
     open_source = "No upstream PRs merged in 12 months"
     if up:
         more = f" + {len(up) - 1} more" if len(up) > 1 else ""
         open_source = f"{up[0]['repo'].split('/')[-1]} #{up[0]['number']}{more} merged upstream"
-    shipping = "Nothing new this week"
-    if latest:
-        shipping = f"{latest['repo'].split('/')[-1]} · {CONVENTIONAL_PREFIX.sub('', latest['title'])}"
-    stack = " · ".join(f"{LANGUAGE_NAMES.get(lang, lang)} {n}" for lang, n in s["languages"])
-    return [("commit", "Git activity", f"{cal['commits']} commits in 12 months · {cal['streak']}-day streak"),
-            ("pr", "Open source", open_source), ("code", "Recently shipping", shipping),
-            ("bars", "Engineering stack", stack)]
+    return [("bars", "Share of the last 12 months",
+             f"{s['in_window']} of {s['total']} contributions in these {len(s['weeks'])} weeks"),
+            ("pr", "Open source", open_source)]
 
 
 def icon(kind, x, y, colour):
     """22-unit line icons drawn at (x, y) top-left."""
     st = f'fill="none" stroke="{colour}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
     paths = {
-        "commit": f'<circle cx="{x + 11}" cy="{y + 11}" r="4.5" {st}/><path d="M{x} {y + 11}h6.5M{x + 15.5} {y + 11}H{x + 22}" {st}/>',
         "pr": (f'<circle cx="{x + 5}" cy="{y + 4}" r="3" {st}/><circle cx="{x + 5}" cy="{y + 18}" r="3" {st}/>'
                f'<circle cx="{x + 17}" cy="{y + 18}" r="3" {st}/><path d="M{x + 5} {y + 7}v8M{x + 17} {y + 15}V{y + 9}a3 3 0 0 0-3-3h-4" {st}/>'),
-        "code": f'<path d="M{x + 6} {y + 5}l-6 6 6 6M{x + 16} {y + 5}l6 6-6 6M{x + 13} {y + 2}l-4 18" {st}/>',
         "bars": f'<path d="M{x + 1} {y + 21}h20M{x + 4} {y + 18}v-5M{x + 9} {y + 18}v-9M{x + 14} {y + 18}v-6M{x + 19} {y + 18}V{y + 3}" {st}/>',
     }
     return paths[kind]
@@ -137,29 +132,28 @@ def tile(t, c, box, size, limit):
 
 
 def desktop(s, c):
-    w, h = 1200, 900
+    w, h = 1200, 784
     defs, field = backdrop(w, h, c, 22)
-    body = [field, text(40, 54, "SHRO-2002 / ENGINEERING TELEMETRY", 15, c["muted"], MONO, 500, 2),
-            text(38, 104, "Building in public.", 40, c["text"], SANS, 700, -0.8), live_icon(1124, 34, 36, c),
-            line_chart(s["weeks"], c, (110, 172, 1040, 370), 18),
-            text(40, 628, f"Weekly public contributions, last {len(s['weeks'])} complete weeks · {STACK_NOTE} · "
-                          f"data as of {s['updated']}", 16, c["muted"])]
+    body = [field, text(40, 54, f"SHRO-2002 / PUBLIC ACTIVITY · {s['period'].upper()}", 15, c["muted"], MONO, 500, 2),
+            text(38, 104, s["headline"], 40, c["text"], SANS, 700, -0.8),
+            live_icon(1124, 34, 36, c), line_chart(s["weeks"], c, (110, 172, 1040, 370), 18),
+            text(40, 628, f"Weekly public contributions, {len(s['weeks'])} complete weeks · GitHub's graph below shows "
+                          f"the full year · data as of {s['updated']}", 16, c["muted"])]
     for i, t in enumerate(tiles(s)):
-        body.append(tile(t, c, (40 + (i % 2) * 566, 656 + (i // 2) * 116, 554, 104), 16, 62))
+        body.append(tile(t, c, (40 + i * 566, 656, 554, 104), 16, 62))
     return svg(w, h, TITLE, describe(s), "".join(body), defs + PULSE)
 
 
 def mobile(s, c):
-    w, h = 560, 1176
+    w, h = 560, 884
     defs, field = backdrop(w, h, c, 18)
-    body = [field, text(28, 50, "ENGINEERING TELEMETRY", 20, c["muted"], MONO, 500, 1.6),
-            text(26, 104, "Building in public.", 36, c["text"], SANS, 700, -0.6), live_icon(492, 26, 40, c),
-            line_chart(s["weeks"], c, (88, 176, 432, 300), 21, label_every=2),
-            text(28, 562, f"Weekly public contributions, last {len(s['weeks'])}", 21, c["muted"]),
+    body = [field, text(28, 50, s["period"].upper(), 20, c["muted"], MONO, 500, 1.6),
+            text(26, 104, s["headline"], 36, c["text"], SANS, 700, -0.6),
+            live_icon(492, 26, 40, c), line_chart(s["weeks"], c, (88, 176, 432, 300), 21, label_every=2),
+            text(28, 562, f"Weekly public contributions, {len(s['weeks'])}", 21, c["muted"]),
             text(28, 590, f"complete weeks · data as of {s['updated']}", 21, c["muted"])]
     for i, t in enumerate(tiles(s)):
         body.append(tile(t, c, (16, 618 + i * 126, 528, 114), 21, 41))
-    body.append(text(28, 1144, STACK_NOTE[0].upper() + STACK_NOTE[1:], 20, c["faint"]))
     return svg(w, h, TITLE, describe(s), "".join(body), defs + PULSE)
 
 
@@ -185,9 +179,11 @@ def readme_block(data, s):
     return (f"<!-- activity:start -->\n<picture>\n{sources}"
             f'  <img alt="{html.escape(describe(s))}" src="assets/activity/activity-light.svg" width="100%">\n'
             f"</picture>\n\n**Recently shipping**\n\n{feed}\n\n"
-            f"<sub>Rebuilt daily by the [activity workflow](.github/workflows/activity.yml) from public GitHub data "
-            f"(contribution calendar, search and events APIs). Pull requests to this profile repository, housekeeping "
-            f"commits and bot commits are left out. Data as of {s['updated']}.</sub>\n<!-- activity:end -->")
+            f"The chart covers {s['period']} only; those weeks hold {s['in_window']} of my {s['total']} public "
+            f"contributions in the last 12 months, and GitHub's own graph under this README shows the full year. "
+            f"Rebuilt daily by the [activity workflow](.github/workflows/activity.yml) from public GitHub data; pull "
+            f"requests to this profile repository, housekeeping commits and bot commits are left out. Data as of "
+            f"{s['updated']}.\n<!-- activity:end -->")
 
 
 def main():

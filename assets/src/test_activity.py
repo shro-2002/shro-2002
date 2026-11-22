@@ -5,8 +5,8 @@ Run: python3 assets/src/test_activity.py  (also collected by pytest)
 
 from datetime import date, timedelta
 
-from activity_data import pick_feed, streaks
-from activity_render import axis, md, weekly
+from activity_data import pick_feed
+from activity_render import axis, md, summary, weekly
 
 
 def entry(repo, date, title="feat: ship it"):
@@ -40,17 +40,19 @@ def test_axis_covers_peak_with_round_integer_ticks():
         assert ticks <= 4 and step * ticks >= peak and float(step).is_integer()
 
 
-
 def test_weekly_keeps_only_complete_sunday_weeks():
     first = date(2026, 11, 4)  # a Wednesday: its week is partial, as is the week holding the last day
     days = [{"date": (first + timedelta(days=i)).isoformat(), "count": 1} for i in range(20)]
     assert weekly(days) == [(date(2026, 11, 8), 7), (date(2026, 11, 15), 7)]
 
 
-def test_streaks_ignore_a_quiet_today():
-    assert streaks([1, 1, 0, 1, 1, 1, 0]) == (3, 3)
-    assert streaks([1, 0, 1, 1, 1, 1]) == (4, 4)
-    assert streaks([1, 1, 0, 0]) == (0, 2)
+def test_summary_states_the_window_and_its_share_of_the_year():
+    first = date(2026, 11, 1)  # a Sunday: two complete weeks, then one extra day
+    days = [{"date": (first + timedelta(days=i)).isoformat(), "count": 2} for i in range(15)]
+    prs = [entry("other/lib", "2026-11-03"), entry("shro-2002/a", "2026-11-04")]
+    s = summary({"calendar": {"days": days, "total": 100}, "prs": prs, "feed": [], "updated": "2026-11-15"})
+    assert (s["period"], s["in_window"], s["total"]) == ("Nov 1 – Nov 14, 2026", 28, 100)
+    assert [p["repo"] for p in s["upstream"]] == ["other/lib"]
 
 
 if __name__ == "__main__":

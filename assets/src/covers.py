@@ -4,8 +4,13 @@ from content import REWARD_BARS, REWARD_FACTS, REWARD_NOTE
 from kit import MONO, SANS, backdrop, label, pill, screenshot, svg, text
 
 
+def metric_lines(p, phone=False):
+    """(value, label lines) per metric; the phone layout takes a metric's narrower lines where it has them."""
+    return [(value, narrow[0] if phone and narrow else lines) for value, lines, *narrow in p["metrics"]]
+
+
 def cover_desc(p):
-    metrics = "; ".join(f"{v} {' '.join(lines)}" for v, lines in p["metrics"])
+    metrics = "; ".join(f"{value} {' '.join(lines)}" for value, lines in metric_lines(p))
     return f"{p['name']}: {' '.join(p['pitch_lines'])} Evidence: {metrics}. Status: {p['status'].lower()}."
 
 
@@ -33,27 +38,33 @@ def cover_desktop(p, c):
             text(40, 186, p["pitch"], 19, c["muted"]),
             screenshot(p["shot"], 40, 212, 704, 396, c, f"s-{p['slug']}"),
             label(784, 236, "EVIDENCE", c["faint"])]
-    for i, (value, lines) in enumerate(p["metrics"]):
-        y = 286 + i * 104
+    # Two label lines per metric is the base layout; each extra line tightens the column to make room.
+    metrics = metric_lines(p)
+    extra = sum(len(lines) for _, lines in metrics) - 2 * len(metrics)
+    y = 286 - 10 * extra
+    for i, (value, lines) in enumerate(metrics):
         body.append(metric_block(value, lines, c, 784, y, c["text"] if i else col))
-        body.append(f'<line x1="784" y1="{y + 66}" x2="1160" y2="{y + 66}" stroke="{c["border"]}"/>')
-    body += [text(784, 588 + 20 * i, s, 14, c["faint"], MONO, 500) for i, s in enumerate(p["stack"])]
+        y += 62 + 21 * len(lines)
+        body.append(f'<line x1="784" y1="{y - 38}" x2="1160" y2="{y - 38}" stroke="{c["border"]}"/>')
+    body += [text(784, 588 + 11 * extra + 20 * i, s, 14, c["faint"], MONO, 500) for i, s in enumerate(p["stack"])]
     return svg(w, h, p["name"], cover_desc(p), "".join(body), defs)
 
 
 def cover_mobile(p, c):
-    w, h = 560, 900
+    metrics = metric_lines(p, phone=True)
+    w, h = 560, 618 + sum(38 + 28 * len(lines) for _, lines in metrics)
     defs, field = backdrop(w, h, c, 16)
     col = c[p["accent"]]
     body = [field, header(p, c, 28, 532, 52, 44, 114, 20), label(28, 150, p["category"], col, 20),
             text(28, 190, p["pitch_lines"][0], 22, c["muted"]), text(28, 220, p["pitch_lines"][1], 22, c["muted"]),
             screenshot(p["shot"], 28, 248, 504, 284, c, f"m-{p['slug']}")]
-    for i, (value, lines) in enumerate(p["metrics"]):
-        y = 598 + i * 94
+    y = 598
+    for i, (value, lines) in enumerate(metrics):
         body.append(text(28, y, value, 28, c["text"] if i else col, SANS, 700, -0.5))
         body += [text(236, y - 16 + 28 * j, s, 21, c["muted"]) for j, s in enumerate(lines)]
-        body.append(f'<line x1="28" y1="{y + 36}" x2="532" y2="{y + 36}" stroke="{c["border"]}"/>')
-    body.append(text(28, 878, p["stack"][0], 20, c["faint"], MONO, 500))
+        y += 38 + 28 * len(lines)
+        body.append(f'<line x1="28" y1="{y - 58}" x2="532" y2="{y - 58}" stroke="{c["border"]}"/>')
+    body.append(text(28, h - 22, p["stack"][0], 20, c["faint"], MONO, 500))
     return svg(w, h, p["name"], cover_desc(p), "".join(body), defs)
 
 

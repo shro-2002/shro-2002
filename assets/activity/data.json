@@ -1,7 +1,5 @@
 {
  "calendar": {
-  "streak": 5,
-  "longest_streak": 11,
   "days": [
    {
     "date": "2026-08-31",
@@ -340,10 +338,7 @@
     "count": 22
    }
   ],
-  "total": 395,
-  "last30": 322,
-  "commits": 319,
-  "repos_with_commits": 19
+  "total": 395
  },
  "prs": [
   {
@@ -404,20 +399,6 @@
    "title": "fix: release hardening from the final submission audit",
    "url": "https://github.com/shro-2002/agentdoor/commit/7c4797fa1d256290d608bf00a352d3b32890a4b9"
   }
- ],
- "languages": [
-  [
-   "Python",
-   12
-  ],
-  [
-   "TypeScript",
-   5
-  ],
-  [
-   "Jupyter Notebook",
-   5
-  ]
  ],
  "updated": "2026-11-22"
 }
