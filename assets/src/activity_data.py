@@ -12,6 +12,7 @@ import os
 import re
 import sys
 import time
+from collections import Counter
 import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -24,6 +25,7 @@ DATA = ASSETS / "activity" / "data.json"
 API = "https://api.github.com"
 FEED_SIZE = 4
 CHART_DAYS = 84
+LANGUAGE_DAYS = 90
 TITLE_MAX = 90
 # Housekeeping that does not show shipped work.
 TRIVIAL = re.compile(r"^(merge|bump|chore|ci|style|docs|build|wip)\b|dependabot|renovate|^update readme|\[skip",
@@ -71,13 +73,30 @@ def graphql(query, variables):
     return result["data"]
 
 
+def streaks(counts):
+    """(current, longest) runs of days with contributions; a quiet today does not end the current run."""
+    longest = run = 0
+    for n in counts:
+        run = run + 1 if n else 0
+        longest = max(longest, run)
+    current = 0
+    for n in reversed(counts[:-1] if counts and not counts[-1] else counts):
+        if not n:
+            break
+        current += 1
+    return current, longest
+
+
 def fetch_calendar(now):
     since = (now - timedelta(days=365)).strftime("%Y-%m-%dT00:00:00Z")
     coll = graphql(CALENDAR_QUERY, {"login": LOGIN, "from": since})["user"]["contributionsCollection"]
     cal = coll["contributionCalendar"]
     days = [d for w in cal["weeks"] for d in w["contributionDays"]]
     cutoff = (now - timedelta(days=30)).date().isoformat()
+    current, longest = streaks([d["contributionCount"] for d in days])
     return {
+        "streak": current,
+        "longest_streak": longest,
         "days": [{"date": d["date"], "count": d["contributionCount"]} for d in days[-CHART_DAYS:]],
         "total": cal["totalContributions"],
         "last30": sum(d["contributionCount"] for d in days if d["date"] > cutoff),
@@ -110,13 +129,24 @@ def fetch_releases():
             for e in events if e["type"] == "ReleaseEvent" and e["payload"].get("action") == "published"]
 
 
+def public_repos():
+    """LOGIN's own public, non-fork, non-archived repositories, most recently pushed first."""
+    repos = request(f"{API}/users/{LOGIN}/repos?type=owner&sort=pushed&per_page=30")
+    return [r for r in repos
+            if not (r["fork"] or r["archived"] or r["private"] or r["full_name"] == PROFILE_REPO)]
+
+
+def fetch_languages(now):
+    """Primary language of each repository pushed in the last LANGUAGE_DAYS, counted per repository (not bytes)."""
+    cutoff = (now - timedelta(days=LANGUAGE_DAYS)).isoformat()
+    counts = Counter(r["language"] for r in public_repos() if r["language"] and r["pushed_at"] >= cutoff)
+    return [[lang, n] for lang, n in counts.most_common(3)]
+
+
 def fetch_commits(limit=6):
     """Latest non-trivial commit by LOGIN in each recently pushed public, non-fork repository."""
-    repos = request(f"{API}/users/{LOGIN}/repos?type=owner&sort=pushed&per_page=15")
     picked = []
-    for r in repos:
-        if r["fork"] or r["archived"] or r["private"] or r["full_name"] == PROFILE_REPO:
-            continue
+    for r in public_repos()[:15]:
         commits = request(f"{API}/repos/{r['full_name']}/commits?author={LOGIN}&per_page=15")
         subject = next((c for c in commits if not TRIVIAL.search(c["commit"]["message"].splitlines()[0])), None)
         if subject:
@@ -157,7 +187,8 @@ def main():
     calendar = section("calendar", lambda: fetch_calendar(now), old)
     prs = section("prs", lambda: fetch_prs(now), old)
     feed = section("feed", lambda: pick_feed(prs or [], fetch_releases(), fetch_commits()), old)
-    new = {"calendar": calendar, "prs": prs, "feed": feed}
+    languages = section("languages", lambda: fetch_languages(now), old)
+    new = {"calendar": calendar, "prs": prs, "feed": feed, "languages": languages}
     if None in new.values():
         sys.exit("activity: no data yet for " + ", ".join(k for k, v in new.items() if v is None))
     changed = {k: v for k, v in old.items() if k != "updated"} != new

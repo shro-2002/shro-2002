@@ -3,8 +3,10 @@
 Run: python3 assets/src/test_activity.py  (also collected by pytest)
 """
 
-from activity_data import pick_feed
-from activity_render import axis, md
+from datetime import date, timedelta
+
+from activity_data import pick_feed, streaks
+from activity_render import axis, md, weekly
 
 
 def entry(repo, date, title="feat: ship it"):
@@ -36,6 +38,19 @@ def test_axis_covers_peak_with_round_integer_ticks():
     for peak in (0, 1, 7, 83, 136, 412, 999):
         step, ticks = axis(peak)
         assert ticks <= 4 and step * ticks >= peak and float(step).is_integer()
+
+
+
+def test_weekly_keeps_only_complete_sunday_weeks():
+    first = date(2026, 11, 4)  # a Wednesday: its week is partial, as is the week holding the last day
+    days = [{"date": (first + timedelta(days=i)).isoformat(), "count": 1} for i in range(20)]
+    assert weekly(days) == [(date(2026, 11, 8), 7), (date(2026, 11, 15), 7)]
+
+
+def test_streaks_ignore_a_quiet_today():
+    assert streaks([1, 1, 0, 1, 1, 1, 0]) == (3, 3)
+    assert streaks([1, 0, 1, 1, 1, 1]) == (4, 4)
+    assert streaks([1, 1, 0, 0]) == (0, 2)
 
 
 if __name__ == "__main__":
