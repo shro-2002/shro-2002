@@ -112,7 +112,7 @@ A pre-registered study on Tiny Aya Global (3B) with LoRA fine-tuning in TRL, ove
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/activity/activity-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/activity/activity-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/activity/activity-dark.svg">
-  <img alt="Daily public GitHub contributions over the last 12 weeks, peaking at 83 on 2026-11-19; 326 in the last 30 days. Last 12 months: 412 contributions, 331 commits, 4 pull requests merged (1 upstream), commits in 24 repositories. Data as of 2026-11-22." src="assets/activity/activity-light.svg" width="100%">
+  <img alt="Daily public GitHub contributions over the last 12 weeks, peaking at 83 on 2026-11-19; 321 in the last 30 days. Last 12 months: 394 contributions, 318 commits, 4 pull requests merged (1 upstream), commits in 19 repositories. Data as of 2026-11-22." src="assets/activity/activity-light.svg" width="100%">
 </picture>
 
 **Recently shipping**
