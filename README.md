@@ -141,7 +141,7 @@ A pre-registered study on Tiny Aya Global (3B) with LoRA fine-tuning in TRL, ove
 | Area | What I work with |
 |---|---|
 | **Agent systems** | Tool calling: read-only investigation tools, policy-gated actions · multi-agent workflows · MCP servers (Streamable HTTP) · structured outputs · Claude and Gemini APIs |
-| **Backend and APIs** | Python · FastAPI · Pydantic · SQLAlchemy · TypeScript · Node · Express · Zod · Next.js · React |
+| **Backend and APIs** | Python · FastAPI · Pydantic · SQLAlchemy |
 | **Evaluation and fine-tuning** | Frozen and held-out eval sets · pre-registered studies · exact statistical tests and bootstrap intervals · LoRA SFT with TRL · pytest · Vitest · property-based testing · Playwright |
 | **Security and reliability** | Policy engines · idempotency and unique constraints · Ed25519 signing · HMAC and SHA-256 hash chains · approval bound to an action hash · prompt-injection tests |
 | **Data and infrastructure** | SQL · PostgreSQL · MySQL · SQLite · pandas · NumPy · SciPy · PyTorch · Docker · GitHub Actions |
