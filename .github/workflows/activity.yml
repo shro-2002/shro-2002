@@ -1,0 +1,68 @@
+# Refreshes the "Engineering activity" dashboard from public GitHub data.
+# Runs daily and on demand; commits only when the displayed data changed.
+# Commits are authored by github-actions[bot], so they never count toward the
+# profile's own contribution statistics.
+name: Refresh activity dashboard
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily at 03:17 UTC (08:47 IST)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["assets/src/activity_*.py", "assets/src/test_activity.py", "assets/src/kit.py", ".github/workflows/activity.yml"]
+  # On pull requests the generator runs as a check and uploads its output; nothing is pushed.
+  pull_request:
+    paths: ["assets/src/activity_*.py", "assets/src/test_activity.py", "assets/src/kit.py", ".github/workflows/activity.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: activity-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # push the refreshed SVGs; unused on pull requests
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Test feed selection and rendering helpers
+        run: python3 assets/src/test_activity.py
+
+      - name: Fetch public activity (keeps last good data on API errors)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 assets/src/activity_data.py
+
+      - name: Render dashboard and check text sizes
+        run: |
+          python3 assets/src/activity_render.py
+          python3 assets/src/check_sizes.py
+
+      - name: Upload preview
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: activity-preview
+          path: |
+            assets/activity/
+            README.md
+
+      - name: Commit if the displayed data changed
+        if: github.event_name != 'pull_request'
+        run: |
+          git add assets/activity README.md
+          if git diff --cached --quiet; then
+            echo "Displayed data unchanged; nothing to commit."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "chore(activity): refresh dashboard data"
+          git pull --rebase --quiet
+          git push
