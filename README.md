@@ -20,7 +20,7 @@
   <a href="https://www.linkedin.com/in/shroddha-ghosh-90b332232/">LinkedIn</a>
 </p>
 
-**From model output to verified action.** I build AI systems that call real tools, check their own work, and act only within limits enforced in code: payment-incident investigation, chargeback defense, and storefronts AI agents can buy from. Day job: **Software Engineering Specialist at GE Vernova** (Python, SQL, analytics, backend systems). B.Tech in Computer Science, 2024.
+**From model output to verified action.** I build AI systems that call real tools, check their own work, and act only within limits enforced in code: payment-incident investigation, chargeback defense, and storefronts AI agents can buy from. I work as a **Software Engineering Specialist at GE Vernova**, building backend systems and data analytics with Python and SQL. B.Tech in Computer Science, 2024.
 
 ## Selected work
 
