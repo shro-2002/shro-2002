@@ -335,12 +335,40 @@
    },
    {
     "date": "2026-11-22",
-    "count": 22
+    "count": 32
    }
   ],
-  "total": 395
+  "total": 389
  },
  "prs": [
+  {
+   "repo": "shro-2002/rewardshield",
+   "number": 1,
+   "title": "ci: run pytest suite on push and pull request",
+   "url": "https://github.com/shro-2002/rewardshield/pull/1",
+   "date": "2026-11-22"
+  },
+  {
+   "repo": "shro-2002/disputedesk",
+   "number": 1,
+   "title": "ci: run pytest suite on push and pull request",
+   "url": "https://github.com/shro-2002/disputedesk/pull/1",
+   "date": "2026-11-22"
+  },
+  {
+   "repo": "shro-2002/agentdoor",
+   "number": 1,
+   "title": "ci: run typecheck and vitest suites on push and pull request",
+   "url": "https://github.com/shro-2002/agentdoor/pull/1",
+   "date": "2026-11-22"
+  },
+  {
+   "repo": "shro-2002/payops-sentinel",
+   "number": 13,
+   "title": "docs: state that the held-out comparison involves no model",
+   "url": "https://github.com/shro-2002/payops-sentinel/pull/13",
+   "date": "2026-11-22"
+  },
   {
    "repo": "Lexsi-Labs/AgentTune",
    "number": 21,
