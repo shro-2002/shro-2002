@@ -12,19 +12,28 @@ STAGES = [
     ("VERIFY", "at the source"),
 ]
 
-# accent: key into the theme palette. metrics: (value, label lines).
+# accent: key into the theme palette. metrics: (value, label lines[, phone label lines]).
 PROJECTS = [
     {
         "slug": "payops", "num": "01", "name": "PayOps Sentinel", "accent": "amber",
         "category": "PAYMENTS · INCIDENT INVESTIGATION", "status": "SANDBOX",
         "pitch": "Disproves its own explanations before money moves",
         "pitch_lines": ("Investigates refund spikes and tries to", "disprove its own explanations first."),
-        "hero_evidence": "False attribution 26.9% → 2.8%",
+        "hero_evidence": "Code re-tests each named cause",
         "shot": "projects/payops-investigation.jpg",
         "metrics": [
-            ("26.9% → 2.8%", ("false attributions,", "360 held-out runs")),
-            ("84 / 84", ("numeric claims matched", "their source query")),
-            ("16 / 16", ("safety cases passed;", "158 backend tests")),
+            # payops-sentinel/docs/EVALUATION.md: three separate experiments, so each label names its own.
+            ("26.9% → 2.8%",
+             ("wrong attributions: deterministic checker", "vs share baseline, 360 held-out synthetic",
+              "runs, no live model inference"),
+             ("wrong attributions: code", "checker vs share baseline,", "360 held-out synthetic",
+              "runs, no live model")),
+            ("0 / 7",
+             ("false attributions, live Claude runs", "(n = 7, one seed each: indicative only)"),
+             ("false attributions, live", "model, 7 runs: indicative")),
+            ("84 / 84",
+             ("numeric claims matched, earlier 5-scenario", "run; 114 / 118 in the later 7-run suite"),
+             ("numeric claims matched,", "earlier 5-scenario run;", "114 / 118 in later 7 runs")),
         ],
         "stack": ("Python · FastAPI · PostgreSQL", "Claude · Next.js · PayPal sandbox"),
     },
@@ -69,7 +78,7 @@ REWARD_BARS = [
 REWARD_FACTS = [
     ("1,360 agent trajectories, labelled by an", "independent Spider test-suite oracle"),
     ("Better-filtered fine-tuning data: no", "measurable change (−1.06 pts, CI spans 0)"),
-    ("Upstream: my fix merged in AgentTune #22;", "root-cause fix shipped in agenttune 1.1.7"),
+    ("Upstream PR #21: column-order fix merged;", "second fix superseded by maintainers' #22"),
 ]
 REWARD_NOTE = ("Registered seeds. Over 200 database draws, targeted-4 beats",
                "random-4 by 0.25 pts (dev-A) and 1.57 pts (held-out schemas).")
