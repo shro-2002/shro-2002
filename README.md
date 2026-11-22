@@ -17,12 +17,12 @@ I build AI systems that call real tools, check their own work, and act only with
 
 ## Selected work
 
-<a href="https://github.com/shro-2002/payops-sentinel"><picture>
+<picture>
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/covers/payops-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/covers/payops-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/covers/payops-dark.svg">
   <img alt="PayOps Sentinel, flagship 01, payments incident investigation, PayPal sandbox. Investigates refund spikes and tries to disprove its own explanations first. Real incident screenshot: refund rate 21.5% against a 3.4% baseline, detector checks passing, an AI finding with stated uncertainty, 16 verified and 0 unsupported claims. Evidence: false attributions fell from 26.9% to 2.8% on 360 held-out runs; 84 of 84 numeric claims matched their source query; 16 of 16 safety cases passed; 158 backend tests." src="assets/covers/payops-light.svg" width="100%">
-</picture></a>
+</picture>
 
 **[Repository](https://github.com/shro-2002/payops-sentinel) · [Demo video](https://youtu.be/5SXoGS8ZJnE) · [Evaluation](https://github.com/shro-2002/payops-sentinel/blob/main/docs/EVALUATION.md) · [Security model](https://github.com/shro-2002/payops-sentinel/blob/main/docs/SECURITY_MODEL.md)**
 
@@ -31,12 +31,12 @@ I build AI systems that call real tools, check their own work, and act only with
 
 <sub>PayPal sandbox with real sandbox captures and synthetic history · PayPal AI Hackathon 2026</sub>
 
-<a href="https://agentdoor.shop"><picture>
+<picture>
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/covers/agentdoor-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/covers/agentdoor-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/covers/agentdoor-dark.svg">
   <img alt="AgentDoor, flagship 02, agent commerce over MCP, live demo. Owner-approved rules, served to people and AI shopping agents. Real rehearsal screenshot: publishing locked until 7 rules are approved; a simulated rush of 50 customers accepts 3 orders, refuses 47 and oversells 0. Evidence: live at agentdoor.shop with an MCP endpoint over Streamable HTTP serving 3 tools; quotes are Ed25519-signed and bound to the approved policy; 0 units oversold in the simulated rush." src="assets/covers/agentdoor-light.svg" width="100%">
-</picture></a>
+</picture>
 
 **[Live demo](https://agentdoor.shop) · [Repository](https://github.com/shro-2002/agentdoor) · [Demo video](https://youtu.be/ES2aL0BVhkI) · [Architecture](https://github.com/shro-2002/agentdoor/blob/main/planning/03_ARCHITECTURE.md)**
 
@@ -45,12 +45,12 @@ I build AI systems that call real tools, check their own work, and act only with
 
 <sub>Illustrative shop: no payments, no real customers · GoDaddy Inclusive Innovation Hackathon 2026</sub>
 
-<a href="https://github.com/shro-2002/disputedesk"><picture>
+<picture>
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/covers/disputedesk-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/covers/disputedesk-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/covers/disputedesk-dark.svg">
   <img alt="DisputeDesk, flagship 03, multi-agent chargebacks, prototype. Agents draft, code decides, and a person signs the large ones. Real team-chat screenshot: a support user's approval is refused and logged, the FinOps lead approves, and the representment is filed with a gateway receipt. Evidence: 349 tests, 99 of them attacks on the approval gate; provable disputes under $500 file automatically and larger ones need the FinOps lead; an HMAC audit chain is checked before every money call." src="assets/covers/disputedesk-light.svg" width="100%">
-</picture></a>
+</picture>
 
 **[Repository](https://github.com/shro-2002/disputedesk) · [Demo video (2:43)](https://youtu.be/A_EF8L1ivME) · [Claim audit](https://github.com/shro-2002/disputedesk/blob/main/docs/README_CLAIM_AUDIT.md)**
 
@@ -61,12 +61,12 @@ I build AI systems that call real tools, check their own work, and act only with
 
 ## Research and supporting work
 
-<a href="https://github.com/shro-2002/rewardshield"><picture>
+<picture>
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/covers/rewardshield-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/covers/rewardshield-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/covers/rewardshield-dark.svg">
   <img alt="RewardShield, research and open source, pre-registered. How often do SQL execution rewards accept wrong queries, and does catching them change what a small agent learns? False-accept share on the dev-A audit split, registered seeds: AgentTune 1.1.5 rule 4.31%, single-1 3.88%, random-4 3.13%, targeted-4 1.39%, random-16 1.00%. Averaged over 200 database draws, targeted-4 beats random-4 by 0.25 points on dev-A and 1.57 on held-out schemas. 1,360 agent trajectories labelled by an independent Spider test-suite oracle. Better-filtered fine-tuning data made no measurable change (minus 1.06 points, interval spans zero). Upstream: my fix merged in AgentTune PR 22; the root-cause fix shipped in agenttune 1.1.7." src="assets/covers/rewardshield-light.svg" width="100%">
-</picture></a>
+</picture>
 
 **[Repository](https://github.com/shro-2002/rewardshield) · [Results](https://github.com/shro-2002/rewardshield/blob/main/RESULTS.md) · [Pre-registration](https://github.com/shro-2002/rewardshield/blob/main/HYPOTHESES.md) · [AgentTune #20](https://github.com/Lexsi-Labs/AgentTune/issues/20) / [PR #22](https://github.com/Lexsi-Labs/AgentTune/pull/22) · [Upstream outcome](https://github.com/shro-2002/rewardshield/blob/main/reports/upstream/OUTCOME.md)**
 
