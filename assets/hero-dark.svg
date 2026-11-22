@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-labelledby="t d">
+<title id="t">Shroddha Ghosh — Software Engineer, AI Systems and Agentic Applications</title>
+<desc id="d">Building AI systems that reason, use tools, verify outcomes and stay inside enforceable limits. Four stages: the model proposes, code enforces policy, a person authorizes irreversible actions, and the outcome is verified at the source.</desc>
+<rect x="0.5" y="0.5" width="1199" height="419" rx="14" fill="#0B0F14" stroke="#1E2630"/>
+<line x1="56.0" y1="1" x2="56.0" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="146.7" y1="1" x2="146.7" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="237.3" y1="1" x2="237.3" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="328.0" y1="1" x2="328.0" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="418.7" y1="1" x2="418.7" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="509.3" y1="1" x2="509.3" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="600.0" y1="1" x2="600.0" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="690.7" y1="1" x2="690.7" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="781.3" y1="1" x2="781.3" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="872.0" y1="1" x2="872.0" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="962.7" y1="1" x2="962.7" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="1053.3" y1="1" x2="1053.3" y2="419" stroke="#141B23" stroke-width="1"/>
+<line x1="1144.0" y1="1" x2="1144.0" y2="419" stroke="#141B23" stroke-width="1"/>
+<text x="56" y="62" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2.6" fill="#8B949E">SOFTWARE ENGINEER  /  AI SYSTEMS &amp; AGENTIC APPLICATIONS</text>
+<text x="1144" y="62" text-anchor="end" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2.6" fill="#56606B">GE VERNOVA</text>
+<line x1="56" y1="80" x2="1144" y2="80" stroke="#E6EDF3" stroke-width="2"/>
+<text x="52" y="164" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-2.5" fill="#E6EDF3">Shroddha Ghosh</text>
+<rect x="56" y="186" width="44" height="4" fill="#E8A33D"/>
+<text x="56" y="228" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="25" fill="#E6EDF3">Building AI systems that reason, use tools, verify outcomes,</text>
+<text x="56" y="260" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="25" fill="#8B949E">and stay inside limits that code can enforce.</text>
+<line x1="98" y1="318" x2="346" y2="318" stroke="#8B949E" stroke-width="2" stroke-dasharray="4 5"/><path d="M346 313 L354 318 L346 323 Z" fill="#8B949E"/><line x1="386" y1="318" x2="634" y2="318" stroke="#E8A33D" stroke-width="2"/><path d="M634 313 L642 318 L634 323 Z" fill="#E8A33D"/><line x1="674" y1="318" x2="922" y2="318" stroke="#E8A33D" stroke-width="2"/><path d="M922 313 L930 318 L922 323 Z" fill="#E8A33D"/>
+<circle cx="80" cy="318" r="11" fill="#0B0F14" stroke="#8B949E" stroke-width="2" stroke-dasharray="3 3"/><text x="68" y="362" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2" fill="#56606B">01  <tspan fill="#E6EDF3" font-weight="600">PROPOSE</tspan></text><text x="68" y="386" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#8B949E">The model plans the action</text><rect x="358" y="308" width="20" height="20" fill="#E8A33D"/><text x="356" y="362" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2" fill="#56606B">02  <tspan fill="#E6EDF3" font-weight="600">ENFORCE</tspan></text><text x="356" y="386" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#8B949E">Policy in code allows or denies</text><path d="M656 305 L669 318 L656 331 L643 318 Z" fill="#0B0F14" stroke="#E8A33D" stroke-width="2.5"/><text x="644" y="362" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2" fill="#56606B">03  <tspan fill="#E6EDF3" font-weight="600">AUTHORIZE</tspan></text><text x="644" y="386" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#8B949E">A person signs what can't be undone</text><circle cx="944" cy="318" r="12" fill="#3FB950"/><path d="M939 318 l3.5 3.5 l6.5 -7" fill="none" stroke="#0B0F14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="932" y="362" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" letter-spacing="2" fill="#56606B">04  <tspan fill="#E6EDF3" font-weight="600">VERIFY</tspan></text><text x="932" y="386" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" fill="#8B949E">Outcome re-checked at the source</text>
+</svg>
