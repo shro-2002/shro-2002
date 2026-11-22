@@ -25,10 +25,16 @@ THEMES = {
 SANS = "Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
 MONO = "ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
 
+DESC = (
+    "Building AI systems that reason, use tools, verify outcomes and stay inside "
+    "enforceable limits. Four stages: the model proposes, code enforces policy, a "
+    "person approves actions above risk limits, and the outcome is verified at the source."
+)
+
 STEPS = [
     ("01", "PROPOSE", "The model plans the action"),
     ("02", "ENFORCE", "Policy in code allows or denies"),
-    ("03", "AUTHORIZE", "A person signs what can't be undone"),
+    ("03", "AUTHORIZE", "Above risk limits, a person signs"),
     ("04", "VERIFY", "Outcome re-checked at the source"),
 ]
 
@@ -86,7 +92,7 @@ def hero(c):
         )
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-labelledby="t d">
 <title id="t">Shroddha Ghosh — Software Engineer, AI Systems and Agentic Applications</title>
-<desc id="d">Building AI systems that reason, use tools, verify outcomes and stay inside enforceable limits. Four stages: the model proposes, code enforces policy, a person authorizes irreversible actions, and the outcome is verified at the source.</desc>
+<desc id="d">{DESC}</desc>
 <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14" fill="{c["bg"]}" stroke="{c["border"]}"/>
 {grid(c, w, h)}
 <text x="56" y="62" font-family="{MONO}" font-size="13" letter-spacing="2.6" fill="{c["muted"]}">SOFTWARE ENGINEER  /  AI SYSTEMS &amp; AGENTIC APPLICATIONS</text>
@@ -102,9 +108,64 @@ def hero(c):
 """
 
 
+def mobile_flow(c, x, ys):
+    """Same four stages, stacked: one row per stage, connectors pointing down."""
+    parts = []
+    for i in range(3):
+        y1, y2 = ys[i] + 16, ys[i + 1] - 22
+        colour = c["muted"] if i == 0 else c["accent"]
+        dash = ' stroke-dasharray="4 5"' if i == 0 else ""
+        parts.append(
+            f'<line x1="{x}" y1="{y1}" x2="{x}" y2="{y2}" stroke="{colour}" stroke-width="2"{dash}/>'
+            f'<path d="M{x - 5} {y2} L{x} {y2 + 8} L{x + 5} {y2} Z" fill="{colour}"/>'
+        )
+    for i, (num, label, desc) in enumerate(STEPS):
+        y = ys[i]
+        parts.append(node(i, x, y, c))
+        parts.append(
+            f'<text x="{x + 36}" y="{y - 2}" font-family="{MONO}" font-size="19" '
+            f'letter-spacing="2" fill="{c["faint"]}">{num}  '
+            f'<tspan fill="{c["text"]}" font-weight="600">{label}</tspan></text>'
+            f'<text x="{x + 36}" y="{y + 25}" font-family="{SANS}" font-size="21" '
+            f'fill="{c["muted"]}">{desc}</text>'
+        )
+    return "".join(parts)
+
+
+def hero_mobile(c):
+    """Phone layout: ~2x the type of the desktop hero at 300-400px rendered width."""
+    w, h = 560, 640
+    lines = [
+        ("Building AI systems that reason,", "text"),
+        ("use tools, verify outcomes,", "text"),
+        ("and stay inside limits that code", "muted"),
+        ("can enforce.", "muted"),
+    ]
+    headline = "".join(
+        f'<text x="32" y="{206 + 32 * i}" font-family="{SANS}" font-size="24" '
+        f'fill="{c[tone]}">{text}</text>'
+        for i, (text, tone) in enumerate(lines)
+    )
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-labelledby="t d">
+<title id="t">Shroddha Ghosh — Software Engineer, AI Systems and Agentic Applications</title>
+<desc id="d">{DESC}</desc>
+<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14" fill="{c["bg"]}" stroke="{c["border"]}"/>
+{grid(c, w, h, cols=6, inset=32)}
+<text x="32" y="52" font-family="{MONO}" font-size="15" letter-spacing="2.4" fill="{c["muted"]}">SOFTWARE ENGINEER</text>
+<text x="{w - 32}" y="52" text-anchor="end" font-family="{MONO}" font-size="15" letter-spacing="2.4" fill="{c["faint"]}">GE VERNOVA</text>
+<line x1="32" y1="68" x2="{w - 32}" y2="68" stroke="{c["text"]}" stroke-width="2"/>
+<text x="29" y="138" font-family="{SANS}" font-size="58" font-weight="700" letter-spacing="-1.8" fill="{c["text"]}">Shroddha Ghosh</text>
+<rect x="32" y="158" width="40" height="4" fill="{c["accent"]}"/>
+{headline}
+{mobile_flow(c, 56, [372, 444, 516, 588])}
+</svg>
+"""
+
+
 def main():
     for name, c in THEMES.items():
         (OUT / f"hero-{name}.svg").write_text(hero(c))
+        (OUT / f"hero-mobile-{name}.svg").write_text(hero_mobile(c))
 
 
 if __name__ == "__main__":
