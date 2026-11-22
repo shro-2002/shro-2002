@@ -112,7 +112,7 @@ A pre-registered study on Tiny Aya Global (3B) with LoRA fine-tuning in TRL, ove
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/activity/activity-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/activity/activity-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/activity/activity-dark.svg">
-  <img alt="Weekly public GitHub contributions for the last 8 complete weeks (Sep 27: 0, Oct 4: 0, Oct 11: 10, Oct 18: 56, Oct 25: 68, Nov 1: 17, Nov 8: 71, Nov 15: 136). Last 12 months: 412 contributions and 331 commits; current streak 5 days, longest 10. 4 pull requests merged, 1 upstream. Primary languages of repositories pushed in 90 days: Python 12, TypeScript 5, Jupyter Notebook 5. Data as of 2026-11-22." src="assets/activity/activity-light.svg" width="100%">
+  <img alt="Weekly public GitHub contributions for the last 8 complete weeks (Sep 27: 0, Oct 4: 0, Oct 11: 10, Oct 18: 56, Oct 25: 65, Nov 1: 17, Nov 8: 71, Nov 15: 135). Last 12 months: 394 contributions and 318 commits; current streak 5 days, longest 11. 4 pull requests merged, 1 upstream. Primary languages of repositories pushed in 90 days: Python 12, TypeScript 5, Jupyter Notebook 5. Data as of 2026-11-22." src="assets/activity/activity-light.svg" width="100%">
 </picture>
 
 **Recently shipping**
