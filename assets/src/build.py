@@ -7,12 +7,15 @@ prefers-color-scheme for the theme. Covers embed the screenshots in assets/proje
 
 from content import PROJECTS
 from covers import cover_desktop, cover_mobile, research_desktop, research_mobile
-from hero import hero_desktop, hero_mobile
+from hero import hero_desktop, hero_mobile, shortcut
 from kit import ASSETS, THEMES
 
 
 def main():
     (ASSETS / "covers").mkdir(exist_ok=True)
+    (ASSETS / "shortcuts").mkdir(exist_ok=True)
+    for p in PROJECTS:
+        (ASSETS / f"shortcuts/{p['slug']}.svg").write_text(shortcut(p))
     for theme, c in THEMES.items():
         outputs = {
             f"hero-{theme}.svg": hero_desktop(c),

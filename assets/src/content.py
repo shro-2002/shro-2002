@@ -71,5 +71,5 @@ REWARD_FACTS = [
     ("Better-filtered fine-tuning data: no", "measurable change (−1.06 pts, CI spans 0)"),
     ("Upstream: my fix merged in AgentTune #22;", "root-cause fix shipped in agenttune 1.1.7"),
 ]
-REWARD_NOTE = ("Registered seeds. Averaged over 200 database draws, targeted-4 beats",
-               "random-4 by 0.25 pts on dev-A and 1.57 pts on held-out schemas.")
+REWARD_NOTE = ("Registered seeds. Over 200 database draws, targeted-4 beats",
+               "random-4 by 0.25 pts (dev-A) and 1.57 pts (held-out schemas).")

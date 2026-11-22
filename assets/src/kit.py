@@ -39,7 +39,7 @@ def text(x, y, s, size, fill, font=SANS, weight=400, spacing=0, anchor="start"):
     )
 
 
-def label(x, y, s, fill, size=13, anchor="start"):
+def label(x, y, s, fill, size=14, anchor="start"):
     """Wide-tracked monospace caps: section labels and categories."""
     return text(x, y, s, size, fill, MONO, 500, 2.4, anchor)
 

@@ -1,7 +1,7 @@
 """Workbench hero: identity module, control-loop module, three project modules."""
 
 from content import META, NAME, PROJECTS, ROLE, STAGES, TAGLINE
-from kit import MONO, SANS, backdrop, chamfer, label, pill, stage_node, svg, text
+from kit import MONO, SANS, THEMES, backdrop, chamfer, label, pill, stage_node, svg, text
 
 TITLE = f"{NAME} — {ROLE}"
 DESC = (
@@ -21,7 +21,7 @@ def control_loop(c, x0, y, span):
         parts.append(f'<line x1="{x1}" y1="{y}" x2="{x2}" y2="{y}" stroke="{colour}" stroke-width="2"{dash}/>')
     for i, (name, caption) in enumerate(STAGES):
         x = x0 + i * gap
-        parts += [stage_node(i, x, y, c), text(x - 10, y + 34, name, 13, c["text"], MONO, 600, 1.6),
+        parts += [stage_node(i, x, y, c), text(x - 10, y + 34, name, 14, c["text"], MONO, 600, 1.6),
                   text(x - 10, y + 54, caption, 14, c["muted"])]
     return "".join(parts)
 
@@ -33,8 +33,8 @@ def project_module(p, c, y):
         f'<rect x="752" y="{y}" width="140" height="3" fill="{col}"/>',
         text(780, y + 46, p["num"], 14, col, MONO, 600, 1.5),
         text(814, y + 47, p["name"], 25, c["text"], SANS, 700),
-        pill(1150, y + 28, p["status"], col),
-        label(780, y + 76, p["category"], col, 12),
+        pill(1150, y + 26, p["status"], col, 14),
+        label(780, y + 76, p["category"], col),
         text(780, y + 106, p["pitch"], 15, c["muted"]),
         f'<line x1="780" y1="{y + 124}" x2="1148" y2="{y + 124}" stroke="{c["border"]}"/>',
         text(780, y + 152, p["hero_evidence"], 14, c["text"], MONO, 500),
@@ -62,7 +62,7 @@ def hero_desktop(c):
         f'<line x1="60" y1="330" x2="700" y2="330" stroke="{c["border"]}"/>',
         label(60, 356, META, c["faint"]),
         chamfer(24, 392, 708, 184, c), label(60, 432, "CONTROL LOOP", c["cyan"]),
-        label(696, 432, "MODEL PROPOSES · CODE DECIDES", c["faint"], 12, "end"),
+        label(696, 432, "MODEL PROPOSES · CODE DECIDES", c["faint"], anchor="end"),
         control_loop(c, 74, 488, 570), bus(c),
     ]
     body += [project_module(p, c, 24 + i * 190) for i, p in enumerate(PROJECTS)]
@@ -74,10 +74,10 @@ def project_row(p, c, y):
     return "".join([
         chamfer(16, y, 528, 116, c, 16),
         f'<rect x="16" y="{y}" width="110" height="3" fill="{col}"/>',
-        text(40, y + 46, p["num"], 17, col, MONO, 600),
-        text(80, y + 47, p["name"], 28, c["text"], SANS, 700),
-        pill(520, y + 24, p["status"], col, 12),
-        text(40, y + 90, p["hero_evidence"], 20, c["muted"], MONO, 500),
+        text(40, y + 47, p["num"], 22, col, MONO, 600),
+        text(84, y + 48, p["name"], 30, c["text"], SANS, 700),
+        pill(520, y + 18, p["status"], col, 20),
+        text(40, y + 94, p["hero_evidence"], 22, c["muted"], MONO, 500),
     ])
 
 
@@ -86,14 +86,30 @@ def hero_mobile(c):
     defs, field = backdrop(w, h, c, 16)
     body = [
         field, chamfer(16, 16, 528, 372, c, 22), f'<rect x="16" y="16" width="4" height="372" fill="{c["amber"]}"/>',
-        label(44, 58, "IDENTITY / SHRO-2002", c["cyan"], 15),
+        label(44, 58, "IDENTITY / SHRO-2002", c["cyan"], 20),
         text(40, 128, NAME, 56, c["text"], SANS, 700, -1.5),
         text(44, 170, "Software Engineer ·", 23, c["amber"], SANS, 500),
         text(44, 200, "AI Systems & Agentic Applications", 23, c["amber"], SANS, 500),
         text(44, 252, "Building reliable AI systems that", 24, c["text"]),
         text(44, 284, "use tools, enforce policies,", 24, c["text"]),
         text(44, 316, "and verify outcomes.", 24, c["muted"]),
-        label(44, 362, "GE VERNOVA · BENGALURU", c["faint"], 15),
+        label(44, 362, "GE VERNOVA · BENGALURU", c["faint"], 20),
     ]
     body += [project_row(p, c, 404 + i * 128) for i, p in enumerate(PROJECTS)]
     return svg(w, h, TITLE, DESC, "".join(body), defs)
+
+
+def shortcut(p):
+    """Clickable project chip shown under the hero. One dark variant: reads as a button on both themes."""
+    c = THEMES["dark"]
+    col = c[p["accent"]]
+    w, h = 340, 76
+    body = "".join([
+        f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="12" fill="{c["panel"]}" stroke="{col}" '
+        f'stroke-opacity="0.55"/>',
+        f'<rect x="0.5" y="14" width="4" height="{h - 28}" rx="2" fill="{col}"/>',
+        text(24, 34, p["num"], 17, col, MONO, 600),
+        text(58, 35, p["name"], 25, c["text"], SANS, 700),
+        text(58, 60, f"{p['status']}  ·  REPOSITORY ↗", 14, c["muted"], MONO, 500, 1.2),
+    ])
+    return svg(w, h, f"{p['name']} repository", f"Open the {p['name']} repository on GitHub.", body)

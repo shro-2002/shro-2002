@@ -9,12 +9,12 @@ def cover_desc(p):
     return f"{p['name']}: {' '.join(p['pitch_lines'])} Evidence: {metrics}. Status: {p['status'].lower()}."
 
 
-def header(p, c, x, right, y, name_size, name_y):
+def header(p, c, x, right, y, name_size, name_y, small=14):
     col = c[p["accent"]]
     return "".join([
         f'<rect x="{x - 8}" y="0.5" width="150" height="3" fill="{col}"/>',
-        text(x, y, f"{p['num']}  /  FLAGSHIP", 14, col, MONO, 600, 2.4),
-        pill(right, y - 18, p["status"], col, 12),
+        text(x, y, f"{p['num']}  /  FLAGSHIP", small, col, MONO, 600, 2.4),
+        pill(right, y - small - 6, p["status"], col, small),
         text(x - 3, name_y, p["name"], name_size, c["text"], SANS, 700, -1),
     ])
 
@@ -37,7 +37,7 @@ def cover_desktop(p, c):
         y = 286 + i * 104
         body.append(metric_block(value, lines, c, 784, y, c["text"] if i else col))
         body.append(f'<line x1="784" y1="{y + 66}" x2="1160" y2="{y + 66}" stroke="{c["border"]}"/>')
-    body += [text(784, 588 + 20 * i, s, 13, c["faint"], MONO, 500) for i, s in enumerate(p["stack"])]
+    body += [text(784, 588 + 20 * i, s, 14, c["faint"], MONO, 500) for i, s in enumerate(p["stack"])]
     return svg(w, h, p["name"], cover_desc(p), "".join(body), defs)
 
 
@@ -45,15 +45,15 @@ def cover_mobile(p, c):
     w, h = 560, 900
     defs, field = backdrop(w, h, c, 16)
     col = c[p["accent"]]
-    body = [field, header(p, c, 28, 532, 50, 44, 112), label(28, 148, p["category"], col, 14),
+    body = [field, header(p, c, 28, 532, 52, 44, 114, 20), label(28, 150, p["category"], col, 20),
             text(28, 190, p["pitch_lines"][0], 22, c["muted"]), text(28, 220, p["pitch_lines"][1], 22, c["muted"]),
             screenshot(p["shot"], 28, 248, 504, 284, c, f"m-{p['slug']}")]
     for i, (value, lines) in enumerate(p["metrics"]):
         y = 598 + i * 94
         body.append(text(28, y, value, 28, c["text"] if i else col, SANS, 700, -0.5))
-        body += [text(248, y - 16 + 26 * j, s, 19, c["muted"]) for j, s in enumerate(lines)]
+        body += [text(236, y - 16 + 28 * j, s, 21, c["muted"]) for j, s in enumerate(lines)]
         body.append(f'<line x1="28" y1="{y + 36}" x2="532" y2="{y + 36}" stroke="{c["border"]}"/>')
-    body.append(text(28, 878, p["stack"][0], 15, c["faint"], MONO, 500))
+    body.append(text(28, 878, p["stack"][0], 20, c["faint"], MONO, 500))
     return svg(w, h, p["name"], cover_desc(p), "".join(body), defs)
 
 
@@ -65,17 +65,16 @@ RESEARCH_DESC = (
 )
 
 
-def bars(c, x_label, x_bar, y0, max_w, step=32, size=14):
-    small = size - 2
-    title = "FALSE-ACCEPT SHARE · LOWER IS BETTER" if size > 14 else "FALSE-ACCEPT SHARE · DEV-A · LOWER IS BETTER"
-    parts = [label(x_label, y0 - 34, title, c["faint"], small)]
+def bars(c, x_label, x_bar, y0, max_w, step=32, size=14, show_dbs=True):
+    title = "FALSE-ACCEPT SHARE · DEV-A · LOWER IS BETTER" if show_dbs else "FALSE-ACCEPT SHARE (LOWER WINS)"
+    parts = [label(x_label, y0 - 34, title, c["faint"], 14 if show_dbs else size - 2)]
     for i, (name, dbs, value) in enumerate(REWARD_BARS):
         y = y0 + i * step
         best = name == "targeted-4"
         fill = c["cyan"] if best else c["faint"]
         bw = round(max_w * value / 4.5)
         parts += [text(x_label, y + 5, name, size, c["text"] if best else c["muted"], MONO, 600 if best else 400),
-                  text(x_bar - 12, y + 5, dbs, small, c["faint"], MONO, 400, 0, "end"),
+                  text(x_bar - 12, y + 5, dbs, 14, c["faint"], MONO, 400, 0, "end") if show_dbs else "",
                   f'<rect x="{x_bar}" y="{y - size * 0.6:.0f}" width="{bw}" height="{size}" rx="3" fill="{fill}" '
                   f'fill-opacity="{1 if best else 0.55}"/>',
                   text(x_bar + bw + 10, y + 5, f"{value:.2f}%", size, c["text"] if best else c["muted"], MONO,
@@ -83,11 +82,11 @@ def bars(c, x_label, x_bar, y0, max_w, step=32, size=14):
     return "".join(parts)
 
 
-def research_head(c, x, right, title_size):
+def research_head(c, x, right, title_size, small=14, tag="RESEARCH  /  OPEN SOURCE"):
     return "".join([
         f'<rect x="{x - 8}" y="0.5" width="150" height="3" fill="{c["cyan"]}"/>',
-        text(x, 56, "RESEARCH  /  OPEN SOURCE", 14, c["cyan"], MONO, 600, 2.4),
-        pill(right, 38, "PRE-REGISTERED", c["cyan"], 12),
+        text(x, 56, tag, small, c["cyan"], MONO, 600, 2.4),
+        pill(right, 56 - small - 6, "PRE-REGISTERED", c["cyan"], small),
         text(x - 3, 114, "RewardShield", title_size, c["text"], SANS, 700, -1),
     ])
 
@@ -108,19 +107,19 @@ def research_desktop(c):
             text(40, 152, "How often do SQL execution rewards accept wrong queries,", 19, c["muted"]),
             text(40, 178, "and does catching them change what a small agent learns?", 19, c["muted"]),
             facts(c, 40, 236), bars(c, 640, 830, 236, 260),
-            text(640, 404, REWARD_NOTE[0], 12, c["faint"], MONO), text(640, 422, REWARD_NOTE[1], 12, c["faint"], MONO)]
+            text(640, 402, REWARD_NOTE[0], 14, c["faint"], MONO), text(640, 422, REWARD_NOTE[1], 14, c["faint"], MONO)]
     return svg(w, h, RESEARCH_TITLE, RESEARCH_DESC, "".join(body), defs)
 
 
 def research_mobile(c):
     w, h = 560, 900
     defs, field = backdrop(w, h, c, 16)
-    body = [field, research_head(c, 28, 532, 44),
+    body = [field, research_head(c, 28, 532, 44, 20, "RESEARCH"),
             text(28, 156, "How often do SQL execution rewards", 22, c["muted"]),
             text(28, 186, "accept wrong queries, and does it", 22, c["muted"]),
             text(28, 216, "change what a small agent learns?", 22, c["muted"]),
-            bars(c, 28, 272, 300, 172, 44, 18), facts(c, 28, 560, 19, 76)]
-    body += [text(28, 820 + 24 * i, s, 15, c["faint"], MONO) for i, s in enumerate(
-        ("Registered seeds. Averaged over 200 draws,", "targeted-4 beats random-4 by 0.25 pts on",
-         "dev-A and 1.57 pts on held-out schemas."))]
+            bars(c, 28, 248, 300, 210, 48, 22, show_dbs=False), facts(c, 28, 572, 21, 80)]
+    body += [text(28, 800 + 26 * i, s, 20, c["faint"], MONO) for i, s in enumerate(
+        ("Registered seeds. Averaged over", "200 draws, targeted-4 beats", "random-4 by 0.25 pts on dev-A",
+         "and 1.57 pts on held-out schemas."))]
     return svg(w, h, RESEARCH_TITLE, RESEARCH_DESC, "".join(body), defs)
