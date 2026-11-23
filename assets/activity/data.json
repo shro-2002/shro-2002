@@ -2,10 +2,6 @@
  "calendar": {
   "days": [
    {
-    "date": "2026-08-31",
-    "count": 0
-   },
-   {
     "date": "2026-09-01",
     "count": 0
    },
@@ -335,12 +331,23 @@
    },
    {
     "date": "2026-11-22",
-    "count": 32
+    "count": 34
+   },
+   {
+    "date": "2026-11-23",
+    "count": 0
    }
   ],
-  "total": 389
+  "total": 390
  },
  "prs": [
+  {
+   "repo": "shro-2002/amanshift",
+   "number": 1,
+   "title": "ci: run make-test checks; report STOP-level warning skill",
+   "url": "https://github.com/shro-2002/amanshift/pull/1",
+   "date": "2026-11-22"
+  },
   {
    "repo": "shro-2002/rewardshield",
    "number": 1,
@@ -414,19 +421,19 @@
    "url": "https://github.com/shro-2002/acceptguard/commit/e93e4f5c122c43559cdad5f33d240d9a8681ea51"
   },
   {
-   "date": "2026-11-21",
-   "kind": "Commit",
-   "repo": "shro-2002/proofpath-ai",
-   "title": "fix: stop showing displaced roadmap proposals as accepted",
-   "url": "https://github.com/shro-2002/proofpath-ai/commit/0047d2db980d04494dca1d50feb189eff0059e60"
-  },
-  {
    "date": "2026-11-20",
    "kind": "Commit",
    "repo": "shro-2002/agentdoor",
    "title": "fix: release hardening from the final submission audit",
    "url": "https://github.com/shro-2002/agentdoor/commit/7c4797fa1d256290d608bf00a352d3b32890a4b9"
+  },
+  {
+   "date": "2026-11-19",
+   "kind": "Commit",
+   "repo": "shro-2002/amanshift",
+   "title": "fix(api): bound demo inputs; correct claims and reporting after review",
+   "url": "https://github.com/shro-2002/amanshift/commit/385c29b3f4eb54b34fa9e4b4fefffa82cfbfd1dc"
   }
  ],
- "updated": "2026-11-22"
+ "updated": "2026-11-23"
 }

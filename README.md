@@ -119,17 +119,17 @@ Upstream: I reported that AgentTune's shipped SQL reward scored every Tiny Aya r
   <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="assets/activity/activity-mobile-dark.svg">
   <source media="(max-width: 640px)" srcset="assets/activity/activity-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/activity/activity-dark.svg">
-  <img alt="Weekly public GitHub contributions for the last 8 complete weeks, Sep 27 – Nov 21, 2026 (Sep 27: 0, Oct 4: 0, Oct 11: 10, Oct 18: 56, Oct 25: 65, Nov 1: 17, Nov 8: 71, Nov 15: 135). These weeks hold 354 of the 389 public contributions in the last 12 months. 8 pull requests merged in 12 months, 1 upstream. Data as of 2026-11-22." src="assets/activity/activity-light.svg" width="100%">
+  <img alt="Weekly public GitHub contributions for the last 8 complete weeks, Sep 27 – Nov 21, 2026 (Sep 27: 0, Oct 4: 0, Oct 11: 10, Oct 18: 56, Oct 25: 65, Nov 1: 17, Nov 8: 71, Nov 15: 135). These weeks hold 354 of the 390 public contributions in the last 12 months. 9 pull requests merged in 12 months, 1 upstream. Data as of 2026-11-23." src="assets/activity/activity-light.svg" width="100%">
 </picture>
 
 **Recently shipping**
 
 - **2026-11-15 · Upstream PR merged** · [Lexsi-Labs/AgentTune\#21](https://github.com/Lexsi-Labs/AgentTune/pull/21): fix: result\_match\_reward reads folded tool results and accepts reordered columns
 - **2026-11-21 · Commit** · [acceptguard](https://github.com/shro-2002/acceptguard/commit/e93e4f5c122c43559cdad5f33d240d9a8681ea51): fix(verify): drop the quoted-region exemption from the medium check
-- **2026-11-21 · Commit** · [proofpath-ai](https://github.com/shro-2002/proofpath-ai/commit/0047d2db980d04494dca1d50feb189eff0059e60): fix: stop showing displaced roadmap proposals as accepted
 - **2026-11-20 · Commit** · [agentdoor](https://github.com/shro-2002/agentdoor/commit/7c4797fa1d256290d608bf00a352d3b32890a4b9): fix: release hardening from the final submission audit
+- **2026-11-19 · Commit** · [amanshift](https://github.com/shro-2002/amanshift/commit/385c29b3f4eb54b34fa9e4b4fefffa82cfbfd1dc): fix(api): bound demo inputs; correct claims and reporting after review
 
-The chart covers Sep 27 – Nov 21, 2026 only; those weeks hold 354 of my 389 public contributions in the last 12 months, and GitHub's own graph under this README shows the full year. Rebuilt daily by the [activity workflow](.github/workflows/activity.yml) from public GitHub data; pull requests to this profile repository, housekeeping commits and bot commits are left out. Data as of 2026-11-22.
+The chart covers Sep 27 – Nov 21, 2026 only; those weeks hold 354 of my 390 public contributions in the last 12 months, and GitHub's own graph under this README shows the full year. Rebuilt daily by the [activity workflow](.github/workflows/activity.yml) from public GitHub data; pull requests to this profile repository, housekeeping commits and bot commits are left out. Data as of 2026-11-23.
 <!-- activity:end -->
 
 ## How I build
