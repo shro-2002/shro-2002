@@ -2,10 +2,6 @@
  "calendar": {
   "days": [
    {
-    "date": "2026-09-02",
-    "count": 0
-   },
-   {
     "date": "2026-09-03",
     "count": 0
    },
@@ -335,10 +331,14 @@
    },
    {
     "date": "2026-11-24",
+    "count": 2
+   },
+   {
+    "date": "2026-11-25",
     "count": 0
    }
   ],
-  "total": 390
+  "total": 392
  },
  "prs": [
   {
@@ -435,5 +435,5 @@
    "url": "https://github.com/shro-2002/amanshift/commit/385c29b3f4eb54b34fa9e4b4fefffa82cfbfd1dc"
   }
  ],
- "updated": "2026-11-24"
+ "updated": "2026-11-25"
 }
